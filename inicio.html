@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Imágenes Automático</title>
+    <style>
+        /* Estilos para el carrusel */
+        .carousel-container {
+            width: 300px;
+            /* Ancho deseado del carrusel */
+            overflow: hidden;
+        }
+
+        .carousel {
+            display: flex;
+            animation: scroll 10s linear infinite;
+            /* Velocidad de desplazamiento y tiempo */
+        }
+
+        .carousel img {
+            width: 300px;
+            /* Ajusta el ancho deseado de las imágenes */
+            height: auto;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+                /* Desplaza una imagen completa */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Carrusel de Imágenes Automático</h1>
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <img src="/img/delineador liquido.jpeg" alt="Imagen 1">
+            <img src="/img/delineador punta fina2.jpeg" alt="Imagen 2">
+            <img src="/img/delineador loquido2.jpeg" alt="Imagen 3">
+        </div>
+    </div>
+</body>
+
+</html>

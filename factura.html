@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura de Compra</title>
+    <style>
+        /* Estilos CSS para la factura */
+        /* Agrega tus estilos aquí */
+    </style>
+</head>
+
+<body>
+    <div class="factura">
+        <h1 class="titulo">Factura de Compra</h1>
+        <table>
+            <tr>
+                <th>Producto</th>
+                <th>Precio $</th>
+            </tr>
+            <tr>
+                <td>Sus productos</td>
+                <td>$30.97</td> <!-- Reemplaza con el precio real -->
+            </tr>
+            <!-- Agrega más filas para otros productos si es necesario -->
+        </table>
+        <p>Total: $30.97</p> <!-- Reemplaza con el total real -->
+        <a href="descargar_factura.pdf" download>Descargar Factura (PDF)</a>
+    </div>
+</body>
+
+<body>
+    <h1>Metodo de pago</h1>
+
+    <form id="payment-form" action="/procesar-pago" method="POST">
+        <input type="text" name="monto" placeholder="Monto">
+        <br>
+        <input type="text" name="descripcion" placeholder="Descripción">
+        <br>
+        <input type="email" name="email" placeholder="Email">
+        <br>
+        <button type="submit">Pagar</button>
+    </form>
+
+    <form action="/procesar-pago" method="POST">
+        <input type="radio" name="metodo_pago" value="mercado_pago" id="mercado_pago">
+        <label for="mercado_pago">
+            <img src="/img/mercado_pago.jpeg" alt="Mercado Pago">
+        </label>
+        <br>
+
+        <input type="radio" name="metodo_pago" value="transferencia" id="transferencia">
+        <label for="transferencia">
+            <img src="ruta_a_la_imagen_del_metodo_de_pago" alt="Transferencia Bancaria">
+        </label>
+        <br>
+
+        <input type="radio" name="metodo_pago" value="rapipago" id="rapipago">
+        <label for="rapipago">
+            <img src="/img/rapipago.jpeg" alt="Rapipago">
+        </label>
+        <br>
+
+        <button type="submit">Pagar</button>
+        <div id="mensaje-exito" style="display: none;">
+            Su compra fue un éxito. ¡Gracias por su pedido!
+        </div>
+    </form>
+</body>
+
+</html>

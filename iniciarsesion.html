@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Tu Página de Inicio de Sesión</title>
+</head>
+
+<body>
+    <h1>Iniciar Sesión</h1>
+
+    <!-- formulario -->
+    <form id="login-form">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+
+    <script>
+        // Objeto simulado de usuarios
+        const usuarios = [
+            { email: "usuario1@example.com", password: "contrasena1" },
+            { email: "usuario2@example.com", password: "contrasena2" },
+            // Agrega más usuarios si es necesario
+        ];
+
+        // Función para manejar el envío del formulario
+        document.getElementById("login-form").addEventListener("submit", function (e) {
+            e.preventDefault(); // Evita que se recargue la página
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Verificar las credenciales ingresadas
+            const usuario = usuarios.find(u => u.email === email && u.password === password);
+
+            if (usuario) {
+                alert("Inicio de sesión exitoso");
+                // Aquí puedes redirigir al usuario a una página de bienvenida
+            } else {
+                alert("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Procesar Compra</title>
+</head>
+
+<body>
+    <h1>Completa tus datos y selecciona el método de pago</h1>
+    <form id="formulario-compra">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required>
+        <br>
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" required>
+        <br>
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" required>
+        <br>
+        <label for="metodo-pago">Método de Pago:</label>
+        <select id="metodo-pago" required>
+            <option value="seleccionar">Seleccionar...</option>
+            <option value="mercado-pago">Mercado Pago</option>
+            <option value="rapipago">Rapipago</option>
+            <option value="transferencia">Transferencia Bancaria</option>
+        </select>
+        <br>
+        <div id="numero-tarjeta" style="display: none;">
+            <label for="tarjeta">Número de Tarjeta:</label>
+            <input type="text" id="tarjeta">
+            <br>
+        </div>
+        <button type="submit">Procesar Compra</button>
+    </form>
+
+    <div id="factura" style="display: none;">
+        <h2>Factura:</h2>
+        <p>Nombre: <span id="nombre-factura"></span></p>
+        <p>Apellido: <span id="apellido-factura"></span></p>
+        <p>DNI: <span id="dni-factura"></span></p>
+        <p>Método de Pago: <span id="metodo-pago-factura"></span></p>
+        <p>Número de Tarjeta: <span id="tarjeta-factura"></span></p>
+        <p>Total a pagar: $100.00</p> <!-- Puedes calcular el total en tu lógica de negocio -->
+    </div>
+
+    <script>
+        const formularioCompra = document.getElementById("formulario-compra");
+        const factura = document.getElementById("factura");
+        const metodoPagoSelect = document.getElementById("metodo-pago");
+        const numeroTarjeta = document.getElementById("numero-tarjeta");
+
+        formularioCompra.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById("nombre").value;
+            const apellido = document.getElementById("apellido").value;
+            const dni = document.getElementById("dni").value;
+            const metodoPago = metodoPagoSelect.value;
+            const tarjeta = document.getElementById("tarjeta").value;
+
+            document.getElementById("nombre-factura").textContent = nombre;
+            document.getElementById("apellido-factura").textContent = apellido;
+            document.getElementById("dni-factura").textContent = dni;
+            document.getElementById("metodo-pago-factura").textContent = metodoPago;
+            document.getElementById("tarjeta-factura").textContent = metodoPago === "seleccionar" ? "No especificado" : tarjeta;
+
+            factura.style.display = "block";
+        });
+
+        metodoPagoSelect.addEventListener("change", function () {
+            if (metodoPagoSelect.value === "seleccionar") {
+                numeroTarjeta.style.display = "none";
+            } else {
+                numeroTarjeta.style.display = "block";
+            }
+        });
+    </script>
+</body>
+
+</html>

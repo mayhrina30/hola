@@ -1,0 +1,32 @@
+/* Estilos para el carrito */
+#carrito {
+    width: 300px;
+    /* Define un ancho fijo para el carrito */
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    /* Agrega un espacio de margen */
+}
+
+/* Estilos para la tabla del carrito */
+table {
+    width: 150%;
+    border-collapse: collapse;
+}
+
+table,
+th,
+td {
+    border: 1px solid #ddd;
+}
+
+th,
+td {
+    padding: 5px;
+    text-align: left;
+}
